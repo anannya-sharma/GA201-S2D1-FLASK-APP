@@ -1,45 +1,34 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
 # Routes go here
+# @app.route('/')
+# def home():
+#     return 'Welcome to the Flask application!'
 
-if __name__ == '__main__':
-    app.run()
+# @app.route('/greet/anannya')
+# def hello():
+#     return 'Hello,anannya'
 
+# @app.route('/farewell/anannya')
+# def farewell():
+#     return 'GoodBye! Anannya'
 
-@app.route('/')
-def home():
-    return 'Welcome to the Flask application!'
-
-@app.route('/greet/<username>')
-def greet(username):
-    return f'Hello, {username}!'
-
-@app.route('/farewell/<username>')
-def farewell(username):
-    return f'Goodbye, {username}!'
+# if __name__ == '__main__':
+#     app.run()
 
 
 entries = {}
 
 @app.route('/create', methods=['GET', 'POST'])
-def create():
+def create_entry():
     if request.method == 'POST':
         key = request.form['key']
         value = request.form['value']
         entries[key] = value
-        return f'Entry created: {key} - {value}'
-    else:
-        return '''
-        <form method="POST">
-            <label for="key">Key:</label>
-            <input type="text" id="key" name="key">
-            <label for="value">Value:</label>
-            <input type="text" id="value" name="value">
-            <input type="submit" value="Create">
-        </form>
-        '''
+        return f"Entry '{key}' created with value '{value}'"
+
 
 @app.route('/read')
 def read():
@@ -84,3 +73,5 @@ def delete():
         </form>
         '''
 
+if __name__ == '__main__':
+    app.run()
