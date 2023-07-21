@@ -2,21 +2,21 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-Routes go here
-@app.route('/')
-def home():
-    return 'Welcome to the Flask application!'
+# Routes go here
+# @app.route('/')
+# def home():
+#     return 'Welcome to the Flask application!'
 
-@app.route('/greet/anannya')
-def hello():
-    return 'Hello,anannya'
+# @app.route('/greet/anannya')
+# def hello():
+#     return 'Hello,anannya'
 
-@app.route('/farewell/anannya')
-def farewell():
-    return 'GoodBye! Anannya'
+# @app.route('/farewell/anannya')
+# def farewell():
+#     return 'GoodBye! Anannya'
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
 
 
 entries = {}
